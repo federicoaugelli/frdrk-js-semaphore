@@ -9,16 +9,7 @@ const Semaphore = ({ resources = 1, start = resources } = {}) => {
       return Promise.resolve();
     }
 
-    return new Promise(resolve => {
-      const acquireInterval = setInterval(() => {
-        if (counter > 0) {
-          counter -= 1;
-          clearInterval(acquireInterval);
-
-          resolve();
-        }
-      }, timespan() * 1000);
-    });
+    return Promise.reject();
   };
 
   const release = () => {
